@@ -6,5 +6,6 @@ public enum ItemType
 {
   HealthPotion,
   DamageBooster,
-  Mine
+  Mine,
+  HomingRocket
 }

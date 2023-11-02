@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class Mine : Item
 {
-    protected override void UseItem()
+    public override void UseItem(PlayerInventory playerInventory)
     {
-        Destroy(this.gameObject, 0.25f);
+        Debug.Log("used mine");
     }
 
-    public override void OnTriggerEnter(Collider other)
+    protected override void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent<IDamageable>(out IDamageable damageable))
         {
             damageable.ApplyDamage(value);
-            UseItem();
         }
+        Destroy(this.gameObject, 0.25f);
+       // base.OnTriggerEnter(other);
     }
 }

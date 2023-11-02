@@ -15,9 +15,9 @@ public abstract class Item : MonoBehaviour
     {
 
     }
-    protected abstract void UseItem();
-    public virtual void OnTriggerEnter(Collider other)
+    public abstract void UseItem(PlayerInventory playerInventory);
+    protected virtual void OnTriggerEnter(Collider other)
     {
-        other.GetComponent<PlayerInventory>().AddItem(itemType);
+        other.GetComponent<PlayerInventory>().AddItem(itemType, this);
     }
 }
