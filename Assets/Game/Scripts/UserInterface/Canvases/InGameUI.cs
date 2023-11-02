@@ -1,6 +1,8 @@
 using _Game.Scripts.Base.UserInterface;
 using TMPro;
 using UnityEngine;
+using DG.Tweening;
+using UnityEngine.UI;
 
 namespace _Game.Scripts.UserInterface.Canvases
 {
@@ -9,6 +11,7 @@ namespace _Game.Scripts.UserInterface.Canvases
         [SerializeField] private TMP_Text healthPotionCountText;
         [SerializeField] private TMP_Text homingRocketCountText;
         [SerializeField] private TMP_Text damageBoosterCountText;
+        [SerializeField] private Image bulletImage;
 
         // [SerializeField] private TMP_Text distanceText;
 
@@ -43,6 +46,12 @@ namespace _Game.Scripts.UserInterface.Canvases
                     homingRocketCountText.text = value.ToString();
                     break;
             }
+
+        }
+        public void BulletOverlayFill(float duration)
+        {
+            bulletImage.fillAmount = 0;
+            bulletImage.DOFillAmount(1, duration);
 
         }
     }
