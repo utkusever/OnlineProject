@@ -6,16 +6,19 @@ public class Mine : Item
 {
     public override void UseItem(PlayerInventory playerInventory)
     {
-        Debug.Log("used mine");
     }
 
     protected override void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent<IDamageable>(out IDamageable damageable))
         {
+            if (effect != null)
+            {
+                var particle = Instantiate(effect, this.transform.position + new Vector3(0, 1, 0), Quaternion.identity);
+                particle.Play();
+            }
             damageable.ApplyDamage(value);
         }
         Destroy(this.gameObject, 0.25f);
-       // base.OnTriggerEnter(other);
     }
 }
