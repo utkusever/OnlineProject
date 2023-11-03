@@ -6,6 +6,7 @@ public abstract class Item : MonoBehaviour
 {
     public ItemType itemType;
     public float value;
+    public ParticleSystem effect;
     public virtual void Start()
     {
 

@@ -27,4 +27,8 @@ public class PlayerController : MonoBehaviour
         Imover.Movement();
         IRotater.Rotate();
     }
+    public Ray GetMouseRay()
+    {
+        return Camera.main.ScreenPointToRay(Input.mousePosition);
+    }
 }

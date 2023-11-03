@@ -11,6 +11,8 @@ namespace _Game.Scripts.UserInterface.Canvases
         [SerializeField] private TMP_Text healthPotionCountText;
         [SerializeField] private TMP_Text homingRocketCountText;
         [SerializeField] private TMP_Text damageBoosterCountText;
+        [SerializeField] private TMP_Text kamikazeCountText;
+
         [SerializeField] private Image bulletImage;
 
         // [SerializeField] private TMP_Text distanceText;
@@ -44,6 +46,9 @@ namespace _Game.Scripts.UserInterface.Canvases
                     break;
                 case ItemType.HomingRocket:
                     homingRocketCountText.text = value.ToString();
+                    break;
+                case ItemType.Kamikaze:
+                    kamikazeCountText.text = value.ToString();
                     break;
             }
 

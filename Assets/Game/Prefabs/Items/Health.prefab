@@ -120,3 +120,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   value: 10
+  effect: {fileID: 19803030, guid: f2d86437cdea5af4fa71be77b955f553, type: 3}

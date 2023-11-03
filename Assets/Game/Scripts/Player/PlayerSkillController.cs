@@ -10,6 +10,7 @@ public class PlayerSkillController : MonoBehaviour
     [SerializeField] PlayerInventory playerInventory;
     [SerializeField] Transform spawnPoint;
     [SerializeField] float attackCooldown;
+    [SerializeField] PlayerEffects playerEffects;
     private InGameUI inGameUI;
     private BulletPool bulletPool;
     private Coroutine coroutine;
@@ -21,7 +22,7 @@ public class PlayerSkillController : MonoBehaviour
         bulletPool = GameManager.Instance.GetBulletPool();
         waitForSeconds = new WaitForSeconds(attackCooldown);
         coroutine = StartCoroutine(AttackCooldown());
-        inGameUI=UIManager.Instance.GetCanvas(CanvasTypes.InGame) as InGameUI;
+        inGameUI = UIManager.Instance.GetCanvas(CanvasTypes.InGame) as InGameUI;
     }
 
     void Update()
@@ -48,15 +49,23 @@ public class PlayerSkillController : MonoBehaviour
                 playerInventory.UseItem(ItemType.HomingRocket);
             }
         }
+        if (Input.GetKeyDown(KeyCode.V)) //Kamikaze 
+        {
+            if (playerInventory.HasItem(ItemType.Kamikaze))
+            {
+                playerInventory.UseItem(ItemType.Kamikaze);
+            }
+        }
         if (Input.GetKeyDown(KeyCode.Space)) //Normal Shot
         {
             if (!canAttack) return;
             FireBullet();
         }
     }
-
+    
     private void FireBullet()
     {
+        playerEffects.Effect.Play();
         canAttack = false;
         ResetBulletOverlay();
         var bullet = bulletPool.GetFromPool();
@@ -76,4 +85,5 @@ public class PlayerSkillController : MonoBehaviour
         yield return waitForSeconds;
         canAttack = true;
     }
+
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1809132164529424548}
   - component: {fileID: 6713923602500706211}
   - component: {fileID: 1428303111714449258}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SmallTank_WheelsBigBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5952843400344608650}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 891852973874826361}
   - component: {fileID: 6174585212630502857}
   - component: {fileID: 6137013298323677004}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 550909911493959314}
   - component: {fileID: 3663036101978908862}
   - component: {fileID: 8585015609056126990}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,7 +293,8 @@ GameObject:
   - component: {fileID: 5890111791461360951}
   - component: {fileID: 6446875822582541426}
   - component: {fileID: 1736807393681660151}
-  m_Layer: 0
+  - component: {fileID: 7850665566068376327}
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -425,7 +426,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInventory: {fileID: 5890111791461360951}
   spawnPoint: {fileID: 2085147356215805613}
-  attackCooldown: 2
+  attackCooldown: 0.2
+  playerEffects: {fileID: 7850665566068376327}
+--- !u!114 &7850665566068376327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3734220276587912131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b79d9c2e8ca39164aa2889013f36429c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: {fileID: 6770030821528515331}
 --- !u!1 &4249215750870028122
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,7 +452,7 @@ GameObject:
   - component: {fileID: 5516058764010186220}
   - component: {fileID: 1043539844024048639}
   - component: {fileID: 4319918501585732330}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -512,7 +527,7 @@ GameObject:
   - component: {fileID: 4256650820319878265}
   - component: {fileID: 1108661772841059552}
   - component: {fileID: 308778737161911556}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SmallTank_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -595,7 +610,7 @@ GameObject:
   - component: {fileID: 6476208062746652968}
   - component: {fileID: 10497702015986308}
   - component: {fileID: 7944560679374619273}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SmallTank_WheelsSmallUpper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -680,7 +695,7 @@ GameObject:
   - component: {fileID: 9149123232412989079}
   - component: {fileID: 1825271681351062164}
   - component: {fileID: 3912024352369924066}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -791,7 +806,7 @@ GameObject:
   - component: {fileID: 440979031721940127}
   - component: {fileID: 11439049611334278}
   - component: {fileID: 4299725507808612375}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SmallTank_WheelsSmallBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -873,7 +888,7 @@ GameObject:
   m_Component:
   - component: {fileID: 514572556247696705}
   - component: {fileID: 5012301775723230144}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -918,7 +933,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2085147356215805613}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BulletSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -937,7 +952,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.13095425, z: 0.54863983}
   m_LocalScale: {x: 0.7874016, y: 0.7874016, z: 0.7874016}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3017606871779229337}
   m_Father: {fileID: 550909911493959314}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7919600959733206597
@@ -951,7 +967,7 @@ GameObject:
   - component: {fileID: 7979862957374450142}
   - component: {fileID: 1137086761399993977}
   - component: {fileID: 1437416186392716574}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SmallTank_WheelsBigFront
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1023,3 +1039,102 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1001 &7498919199667643655
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2085147356215805613}
+    m_Modifications:
+    - target: {fileID: 1095150588951691541, guid: d983f4c944f1c5f4d94614d7c42952d3, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1290154867177535492, guid: d983f4c944f1c5f4d94614d7c42952d3, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2845410636920947707, guid: d983f4c944f1c5f4d94614d7c42952d3, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3882798243866531332, guid: d983f4c944f1c5f4d94614d7c42952d3, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3895697609651442743, guid: d983f4c944f1c5f4d94614d7c42952d3, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4751634270968503198, guid: d983f4c944f1c5f4d94614d7c42952d3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4751634270968503198, guid: d983f4c944f1c5f4d94614d7c42952d3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4751634270968503198, guid: d983f4c944f1c5f4d94614d7c42952d3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4751634270968503198, guid: d983f4c944f1c5f4d94614d7c42952d3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4751634270968503198, guid: d983f4c944f1c5f4d94614d7c42952d3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4751634270968503198, guid: d983f4c944f1c5f4d94614d7c42952d3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4751634270968503198, guid: d983f4c944f1c5f4d94614d7c42952d3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4751634270968503198, guid: d983f4c944f1c5f4d94614d7c42952d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4751634270968503198, guid: d983f4c944f1c5f4d94614d7c42952d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4751634270968503198, guid: d983f4c944f1c5f4d94614d7c42952d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5727557768282287260, guid: d983f4c944f1c5f4d94614d7c42952d3, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7176275016448892917, guid: d983f4c944f1c5f4d94614d7c42952d3, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7790606644849493849, guid: d983f4c944f1c5f4d94614d7c42952d3, type: 3}
+      propertyPath: m_Name
+      value: StandardMuzzleYellow 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7790606644849493849, guid: d983f4c944f1c5f4d94614d7c42952d3, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d983f4c944f1c5f4d94614d7c42952d3, type: 3}
+--- !u!4 &3017606871779229337 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4751634270968503198, guid: d983f4c944f1c5f4d94614d7c42952d3, type: 3}
+  m_PrefabInstance: {fileID: 7498919199667643655}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6770030821528515331 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3882798243866531332, guid: d983f4c944f1c5f4d94614d7c42952d3, type: 3}
+  m_PrefabInstance: {fileID: 7498919199667643655}
+  m_PrefabAsset: {fileID: 0}
