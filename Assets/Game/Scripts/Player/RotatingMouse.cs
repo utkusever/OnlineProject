@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class RotatingMouse : IRotater
 {
-    private Vector3 firstTouch, lastTouch;
     private float topRotateSpeed;
     private Transform playerTop;
     private Camera camera;
@@ -18,15 +17,12 @@ public class RotatingMouse : IRotater
     }
     public void Rotate()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            firstTouch = Input.mousePosition;
-        }
+
         if (Input.GetMouseButton(0))
         {
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 1000, layerMask))
+            if (Physics.Raycast(ray, out hit, 100000, layerMask))
             {
                 Quaternion rotation = GetDirection(hit);
                 RotateTowardsToAim(rotation);
