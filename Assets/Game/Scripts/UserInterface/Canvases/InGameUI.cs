@@ -2,6 +2,7 @@ using _Game.Scripts.Base.UserInterface;
 using TMPro;
 using UnityEngine;
 using DG.Tweening;
+using Unity.Netcode;
 using UnityEngine.UI;
 
 namespace _Game.Scripts.UserInterface.Canvases
@@ -51,13 +52,12 @@ namespace _Game.Scripts.UserInterface.Canvases
                     kamikazeCountText.text = value.ToString();
                     break;
             }
-
         }
+
         public void BulletOverlayFill(float duration)
         {
             bulletImage.fillAmount = 0;
             bulletImage.DOFillAmount(1, duration);
-
         }
     }
 }

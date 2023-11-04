@@ -13,11 +13,4 @@ public class HomingRocket : Item
         rocket.Init(playerInventory.GetComponent<PlayerController>(), value);
         Debug.Log("used homing");
     }
-    protected override void OnTriggerEnter(Collider other)
-    {
-        base.OnTriggerEnter(other);
-        Destroy(this.gameObject);
-    }
-
-
 }

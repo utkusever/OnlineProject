@@ -15,10 +15,13 @@ public class Mine : Item
             if (effect != null)
             {
                 var particle = Instantiate(effect, this.transform.position + new Vector3(0, 1, 0), Quaternion.identity);
-                particle.Play();
+                base.PlayParticleClientRpc();
+                Destroy(particle.gameObject, particle.time);
             }
+
             damageable.ApplyDamage(value);
         }
-        Destroy(this.gameObject, 0.25f);
+
+        base.DestroyServerRpc();
     }
 }

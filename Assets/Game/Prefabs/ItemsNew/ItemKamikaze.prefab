@@ -9695,6 +9695,7 @@ GameObject:
   - component: {fileID: 8625767842633333469}
   - component: {fileID: 8373000620425719203}
   - component: {fileID: 1507794126475452886}
+  - component: {fileID: 8590027691211911178}
   m_Layer: 0
   m_Name: ItemKamikaze
   m_TagString: Untagged
@@ -9756,6 +9757,26 @@ MonoBehaviour:
   value: 20
   effect: {fileID: 198717222519016466, guid: fe3c67e6e6d561e4f9d805d579933409, type: 3}
   radius: 5
+--- !u!114 &8590027691211911178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5453296587879280625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &8717293219050595403
 GameObject:
   m_ObjectHideFlags: 0

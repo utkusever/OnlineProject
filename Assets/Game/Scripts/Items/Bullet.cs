@@ -1,15 +1,19 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : NetworkBehaviour
 {
+    [SerializeField] private Rigidbody myRb;
+
     [SerializeField] float damage;
     [SerializeField] float time;
     [SerializeField] int speed;
     [SerializeField] int range;
     Coroutine coroutine;
+
     public void Init()
     {
         FireBullet();
@@ -17,30 +21,41 @@ public class Bullet : MonoBehaviour
 
     private void FireBullet()
     {
-        coroutine = StartCoroutine(MoveProjectile(time, speed));
+        // coroutine = StartCoroutine(MoveProjectile(time, speed));
+        StartCoroutine(DeactiveProjectile());
     }
+
     private IEnumerator DeactiveProjectile()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4f);
         GameManager.Instance.GetBulletPool().ReturnToPool(this);
-
     }
 
-    private IEnumerator MoveProjectile(float time, int speed)
+    private void Update()
     {
-        Vector3 startingPos = transform.position;
-        Vector3 finalPos = this.transform.position + (this.transform.forward.normalized * range);
-        float elapsedTime = 0;
-       // StartCoroutine(DeactiveProjectile());
-        while (elapsedTime < time)
-        {
-            transform.position = Vector3.MoveTowards(startingPos, finalPos, (elapsedTime / time) * speed);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
+        myRb.velocity = myRb.transform.forward * 10;
     }
+
+    // private IEnumerator MoveProjectile(float time, int speed)
+    // {
+    //     Vector3 startingPos = transform.position;
+    //     Vector3 finalPos = this.transform.position + (this.transform.forward.normalized * range);
+    //     float elapsedTime = 0;
+    //     StartCoroutine(DeactiveProjectile());
+    //     while (elapsedTime < time)
+    //     {
+    //         transform.position = Vector3.MoveTowards(startingPos, finalPos, (elapsedTime / time) * speed);
+    //         elapsedTime += Time.deltaTime;
+    //         yield return null;
+    //     }
+    // }
     private void OnTriggerEnter(Collider other)
     {
+        if (!IsOwner)
+        {
+            return;
+        }
+
         if (other.TryGetComponent<IDamageable>(out IDamageable damageable))
         {
             damageable.ApplyDamage(damage);
@@ -48,6 +63,4 @@ public class Bullet : MonoBehaviour
             GameManager.Instance.GetBulletPool().ReturnToPool(this);
         }
     }
-
-
 }
