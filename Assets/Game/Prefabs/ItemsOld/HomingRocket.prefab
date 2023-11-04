@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2827394755588596915}
   - component: {fileID: 4956520349759535451}
   - component: {fileID: 7995844638958309147}
+  - component: {fileID: -5874818259916302804}
   m_Layer: 0
   m_Name: HomingRocket
   m_TagString: Untagged
@@ -122,3 +123,23 @@ MonoBehaviour:
   value: 25
   effect: {fileID: 0}
   missile: {fileID: 4211841073901217891, guid: 8b4e89267363b874d836c7a3a8ebf0ed, type: 3}
+--- !u!114 &-5874818259916302804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8871138661070903991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1

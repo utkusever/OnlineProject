@@ -9755,7 +9755,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 4
   value: 20
-  effect: {fileID: 198717222519016466, guid: fe3c67e6e6d561e4f9d805d579933409, type: 3}
+  effectPrefab: {fileID: 198717222519016466, guid: fe3c67e6e6d561e4f9d805d579933409, type: 3}
+  effectInstance: {fileID: 0}
   radius: 5
 --- !u!114 &8590027691211911178
 MonoBehaviour:

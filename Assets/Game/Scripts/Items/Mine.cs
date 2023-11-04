@@ -12,11 +12,12 @@ public class Mine : Item
     {
         if (other.TryGetComponent<IDamageable>(out IDamageable damageable))
         {
-            if (effect != null)
+            if (effectPrefab != null)
             {
-                var particle = Instantiate(effect, this.transform.position + new Vector3(0, 1, 0), Quaternion.identity);
+                effectInstance = Instantiate(effectPrefab, this.transform.position + new Vector3(0, 1, 0),
+                    Quaternion.identity);
                 base.PlayParticleClientRpc();
-                Destroy(particle.gameObject, particle.time);
+                Destroy(effectInstance.gameObject, effectInstance.time);
             }
 
             damageable.ApplyDamage(value);

@@ -8,10 +8,11 @@ public class Kamikaze : Item
 
     public override void UseItem(PlayerInventory playerInventory)
     {
-        if (effect != null)
+        if (effectPrefab != null)
         {
-            var particle = Instantiate(effect, playerInventory.transform.position, Quaternion.identity);
-            particle.Play();
+            effectInstance = Instantiate(effectPrefab, playerInventory.transform.position, Quaternion.identity);
+            base.PlayParticleClientRpc();
+            //Destroy(effectInstance.gameObject,effectInstance.time);
         }
 
         RaycastHit[] hits = Physics.SphereCastAll(playerInventory.transform.position, radius, Vector3.up, 0);

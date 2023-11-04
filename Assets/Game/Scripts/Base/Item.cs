@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public abstract class Item : NetworkBehaviour
 {
     public ItemType itemType;
     public float value;
-    public ParticleSystem effect;
+    public ParticleSystem effectPrefab;
+    public ParticleSystem effectInstance;
 
     public virtual void Start()
     {
@@ -34,6 +36,6 @@ public abstract class Item : NetworkBehaviour
     [ClientRpc]
     protected void PlayParticleClientRpc()
     {
-        effect.Play();
-    } 
+        effectInstance.Play();
+    }
 }

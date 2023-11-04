@@ -22,7 +22,7 @@ namespace _Game.Scripts.Sequence.AppStates
         {
             //playerController.canControl = true;
             UIManager.Instance.EnableCanvas(CanvasTypes.InGame);
-            GameManager.Instance.GetGenerator().GenerateItem(ItemType.Mine,5);
+            GameManager.Instance.GetGenerator().GenerateItem(ItemType.Kamikaze,5);
         }
 
         public override void Exit()
