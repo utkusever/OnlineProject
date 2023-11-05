@@ -9,7 +9,8 @@ public class PlayerEffects : NetworkBehaviour
     public ParticleSystem Effect => effect;
     [SerializeField] private ParticleSystem healEffectPrefab;
     [SerializeField] private ParticleSystem kamikazeEffectPrefab;
-    
+    [SerializeField] private ParticleSystem mineEffectPrefab;
+
 
     [ServerRpc(RequireOwnership = false)]
     public void PlayEffectServerRpc(string itemTypeToSpawn)
@@ -19,6 +20,7 @@ public class PlayerEffects : NetworkBehaviour
         {
             "Kamikaze" => Instantiate(kamikazeEffectPrefab, position, Quaternion.identity),
             "HealthPotion" => Instantiate(healEffectPrefab, position, Quaternion.identity),
+            "Mine" => Instantiate(mineEffectPrefab, position, Quaternion.identity),
             _ => null
         };
 

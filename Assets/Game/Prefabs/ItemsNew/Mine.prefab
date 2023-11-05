@@ -122,7 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 2
   value: 20
-  effect: {fileID: 198728934711372066, guid: 27b2190e3b79fac448473ef2df99c976, type: 3}
+  effectPrefab: {fileID: 198728934711372066, guid: 27b2190e3b79fac448473ef2df99c976, type: 3}
 --- !u!114 &5118042018920476286
 MonoBehaviour:
   m_ObjectHideFlags: 0

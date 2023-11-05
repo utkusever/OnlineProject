@@ -447,6 +447,7 @@ MonoBehaviour:
   effect: {fileID: 6770030821528515331}
   healEffectPrefab: {fileID: 19803030, guid: f2d86437cdea5af4fa71be77b955f553, type: 3}
   kamikazeEffectPrefab: {fileID: 198717222519016466, guid: fe3c67e6e6d561e4f9d805d579933409, type: 3}
+  mineEffectPrefab: {fileID: 198728934711372066, guid: 27b2190e3b79fac448473ef2df99c976, type: 3}
 --- !u!114 &-8160400055301412448
 MonoBehaviour:
   m_ObjectHideFlags: 0

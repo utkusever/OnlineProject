@@ -17,13 +17,10 @@ public class Mine : Item
 
         if (other.TryGetComponent<IDamageable>(out IDamageable damageable))
         {
-            // if (effectPrefab != null)
-            // {
-            //     effectInstance = Instantiate(effectPrefab, this.transform.position + new Vector3(0, 1, 0),
-            //         Quaternion.identity);
-            //     base.PlayParticleClientRpc();
-            //     Destroy(effectInstance.gameObject, effectInstance.time);
-            // }
+            if (effectPrefab != null)
+            {
+                other.GetComponent<PlayerEffects>().PlayEffectServerRpc(this.itemType.ToString());
+            }
 
             damageable.ApplyDamage(value);
         }

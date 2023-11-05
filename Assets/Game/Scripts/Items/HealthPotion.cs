@@ -8,7 +8,6 @@ public class HealthPotion : Item
     {
         if (effectPrefab != null)
         {
-            Debug.Log("used health pot");
             playerInventory.GetComponent<PlayerEffects>().PlayEffectServerRpc(this.itemType.ToString());
         }
 
