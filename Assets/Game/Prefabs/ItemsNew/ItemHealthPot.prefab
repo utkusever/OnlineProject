@@ -9821,7 +9821,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   value: 10
-  effect: {fileID: 19803030, guid: f2d86437cdea5af4fa71be77b955f553, type: 3}
+  effectPrefab: {fileID: 19803030, guid: f2d86437cdea5af4fa71be77b955f553, type: 3}
 --- !u!114 &5759001923239823638
 MonoBehaviour:
   m_ObjectHideFlags: 0

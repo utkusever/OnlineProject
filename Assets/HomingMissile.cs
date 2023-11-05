@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class HomingMissile : MonoBehaviour
 {
     [SerializeField] LayerMask layerMask;
     [SerializeField] float speed;
-    [SerializeField] ParticleSystem particleSystem;
+    [SerializeField] ParticleSystem particle;
     private PlayerController playerController;
     private Transform target;
     private IDamageable damageableTarget;
@@ -53,7 +54,7 @@ public class HomingMissile : MonoBehaviour
     private IEnumerator LaunchMissile()
     {
         print("launched");
-        particleSystem.Play();
+        particle.Play();
         while (Vector3.Distance(target.transform.position, this.transform.position) > 0.2f)
         {
             this.transform.position += (target.transform.position - this.transform.position).normalized * speed *

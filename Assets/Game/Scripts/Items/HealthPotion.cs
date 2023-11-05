@@ -6,13 +6,12 @@ public class HealthPotion : Item
 {
     public override void UseItem(PlayerInventory playerInventory)
     {
-        Debug.Log("used health pot");
-        // if (effectPrefab != null)
-        // {
-        //     effectInstance = Instantiate(effectPrefab, playerInventory.transform.position, Quaternion.identity);
-        //     base.PlayParticleClientRpc();
-        //     Destroy(effectInstance.gameObject,effectInstance.time);
-        // }
+        if (effectPrefab != null)
+        {
+            Debug.Log("used health pot");
+            playerInventory.GetComponent<PlayerEffects>().PlayHealEffectServerRpc();
+        }
+
         if (playerInventory.TryGetComponent<IDamageable>(out IDamageable damageable))
         {
             damageable.ApplyDamage(-value);

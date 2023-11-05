@@ -19,7 +19,7 @@ namespace _Game.Scripts.Sequence.AppStates
         public override void Enter()
         {
             UIManager.Instance.EnableCanvas(CanvasTypes.InGame);
-            GameManager.Instance.GetGenerator().GenerateItem(ItemType.Kamikaze,5);
+            GameManager.Instance.GetGenerator().GenerateItem(ItemType.HealthPotion,5);
         }
 
         public override void Exit()

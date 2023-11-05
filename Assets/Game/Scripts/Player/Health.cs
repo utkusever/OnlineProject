@@ -26,7 +26,6 @@ public class Health : NetworkBehaviour, IDamageable
     public void ApplyDamage(int value)
     {
         AddHealthServerRpc(value);
-        if (healthPoint.Value >= maxHealth) healthPoint.Value = maxHealth;
         if (IsDead())
         {
             this.gameObject.SetActive(false);
@@ -37,6 +36,8 @@ public class Health : NetworkBehaviour, IDamageable
     private void AddHealthServerRpc(int value)
     {
         healthPoint.Value -= value;
+        if (healthPoint.Value >= maxHealth) healthPoint.Value = maxHealth;
+
     }
 
     public Transform GetTransform()

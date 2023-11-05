@@ -9,7 +9,6 @@ public abstract class Item : NetworkBehaviour
     public ItemType itemType;
     public int value;
     public ParticleSystem effectPrefab;
-    public ParticleSystem effectInstance;
 
     public abstract void UseItem(PlayerInventory playerInventory);
 
@@ -25,10 +24,5 @@ public abstract class Item : NetworkBehaviour
         this.GetComponent<NetworkObject>().Despawn();
         Destroy(this.gameObject);
     }
-
-    [ClientRpc]
-    protected void PlayParticleClientRpc()
-    {
-        effectInstance.Play();
-    }
+    
 }
