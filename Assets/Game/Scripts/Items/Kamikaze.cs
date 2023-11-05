@@ -16,9 +16,7 @@ public class Kamikaze : Item
 
         if (effectPrefab != null)
         {
-            // effectInstance = Instantiate(effectPrefab, playerInventory.transform.position, Quaternion.identity);
-            // base.PlayParticleClientRpc();
-            //Destroy(effectInstance.gameObject,effectInstance.time);
+            playerInventory.GetComponent<PlayerEffects>().PlayEffectServerRpc(this.itemType.ToString());
         }
 
         RaycastHit[] hits = Physics.SphereCastAll(playerInventory.transform.position, radius, Vector3.up, 0);
