@@ -27,7 +27,7 @@ public abstract class Item : NetworkBehaviour
         DestroyServerRpc();
     }
 
-    [ServerRpc]
+    [ServerRpc(RequireOwnership = false)]
     protected void DestroyServerRpc()
     {
         Destroy(this.gameObject);

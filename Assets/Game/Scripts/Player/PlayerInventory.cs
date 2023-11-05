@@ -18,6 +18,7 @@ public class PlayerInventory : Subject
             inGameUI = UIManager.Instance.GetCanvas(CanvasTypes.InGame) as InGameUI;
         }
     }
+    
     public void AddItem(ItemType itemToAdd, Item item)
     {
         if (!inventory.ContainsKey(itemToAdd))

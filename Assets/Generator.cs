@@ -17,6 +17,11 @@ public class Generator : NetworkBehaviour
 
     public void GenerateItem(ItemType itemToSpawn, int itemToSpawnCount)
     {
+        if (!IsOwner)
+        {
+            return;
+        }
+
         for (int i = 0; i < itemToSpawnCount; i++)
         {
             Item item = itemToSpawn switch

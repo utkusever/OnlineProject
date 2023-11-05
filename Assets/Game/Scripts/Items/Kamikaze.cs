@@ -10,8 +10,8 @@ public class Kamikaze : Item
     {
         if (effectPrefab != null)
         {
-            effectInstance = Instantiate(effectPrefab, playerInventory.transform.position, Quaternion.identity);
-            base.PlayParticleClientRpc();
+            // effectInstance = Instantiate(effectPrefab, playerInventory.transform.position, Quaternion.identity);
+            // base.PlayParticleClientRpc();
             //Destroy(effectInstance.gameObject,effectInstance.time);
         }
 
