@@ -10,10 +10,10 @@ public class HomingMissile : MonoBehaviour
     private PlayerController playerController;
     private Transform target;
     private IDamageable damageableTarget;
-    private float value;
+    private int value;
     private bool isFinished;
 
-    public void Init(PlayerController playerController, float value)
+    public void Init(PlayerController playerController, int value)
     {
         this.playerController = playerController;
         this.value = value;
@@ -38,16 +38,16 @@ public class HomingMissile : MonoBehaviour
                         damageableTarget = damageable;
                         isFinished = true;
                     }
+
                     break;
                 }
             }
 
             yield return null;
         }
+
         StartCoroutine(LaunchMissile());
-
     }
-
 
 
     private IEnumerator LaunchMissile()
@@ -56,10 +56,12 @@ public class HomingMissile : MonoBehaviour
         particleSystem.Play();
         while (Vector3.Distance(target.transform.position, this.transform.position) > 0.2f)
         {
-            this.transform.position += (target.transform.position - this.transform.position).normalized * speed * Time.deltaTime;
+            this.transform.position += (target.transform.position - this.transform.position).normalized * speed *
+                                       Time.deltaTime;
             this.transform.LookAt(target.transform);
             yield return null;
         }
+
         damageableTarget.ApplyDamage(value);
         Destroy(this.gameObject);
     }

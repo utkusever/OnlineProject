@@ -5,7 +5,7 @@ using UnityEngine;
 public interface IDamageable
 {
     
-    void ApplyDamage(float value);
+    void ApplyDamage(int value);
     bool IsDead();
     Transform GetTransform();
 }

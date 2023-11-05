@@ -4,13 +4,15 @@ using System.Collections.Generic;
 using _Game.Scripts.Enums;
 using _Game.Scripts.UserInterface;
 using _Game.Scripts.UserInterface.Canvases;
+using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerInventory : Subject
+public class PlayerInventory : NetworkBehaviour
 {
     private InGameUI inGameUI;
     private Dictionary<ItemType, int> inventory = new();
     private Dictionary<ItemType, Item> inventory2 = new();
+
     private void Start()
     {
         if (inGameUI == null)
@@ -18,7 +20,7 @@ public class PlayerInventory : Subject
             inGameUI = UIManager.Instance.GetCanvas(CanvasTypes.InGame) as InGameUI;
         }
     }
-    
+
     public void AddItem(ItemType itemToAdd, Item item)
     {
         if (!inventory.ContainsKey(itemToAdd))
@@ -36,6 +38,7 @@ public class PlayerInventory : Subject
 
         print("item type " + itemToAdd + " count: " + inventory[itemToAdd]);
     }
+
     public void RemoveItem(ItemType itemToRemove)
     {
         if (inventory.ContainsKey(itemToRemove))
@@ -61,8 +64,10 @@ public class PlayerInventory : Subject
         {
             return true;
         }
+
         return false;
     }
+
     public void UseItem(ItemType itemToUse)
     {
         var item = inventory2[itemToUse];

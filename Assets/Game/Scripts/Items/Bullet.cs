@@ -8,7 +8,7 @@ public class Bullet : NetworkBehaviour
 {
     [SerializeField] private Rigidbody myRb;
 
-    [SerializeField] float damage;
+    [SerializeField] int damage;
     [SerializeField] float time;
     [SerializeField] int speed;
     [SerializeField] int range;

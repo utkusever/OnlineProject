@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 public class Kamikaze : Item
@@ -8,6 +9,11 @@ public class Kamikaze : Item
 
     public override void UseItem(PlayerInventory playerInventory)
     {
+        if (!IsClient)
+        {
+            return;
+        }
+
         if (effectPrefab != null)
         {
             // effectInstance = Instantiate(effectPrefab, playerInventory.transform.position, Quaternion.identity);

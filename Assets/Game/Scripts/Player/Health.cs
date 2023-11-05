@@ -2,29 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Health : NetworkBehaviour, IDamageable
 {
-    [SerializeField] float health;
+    public NetworkVariable<int>
+        healthPoint = new NetworkVariable<int>(readPerm: NetworkVariableReadPermission.Everyone);
+
     [SerializeField] HealthBar healthBar;
-    private float maxHealth = 100;
+    private int maxHealth = 100;
 
-
-    public void ApplyDamage(float value)
+    public override void OnNetworkSpawn()
     {
-        ApplyDamageClientRpc(value);
+        base.OnNetworkSpawn();
+        if (!IsServer)
+        {
+            return;
+        }
+
+        healthPoint.Value = 100;
     }
 
-    [ClientRpc]
-    private void ApplyDamageClientRpc(float value)
+    public void ApplyDamage(int value)
     {
-        health -= value;
-        if (health >= maxHealth) health = maxHealth;
-        healthBar.UpdateBar(new NetworkVariable<float>(health));
+        AddHealthServerRpc(value);
+        if (healthPoint.Value >= maxHealth) healthPoint.Value = maxHealth;
         if (IsDead())
         {
             this.gameObject.SetActive(false);
         }
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    private void AddHealthServerRpc(int value)
+    {
+        healthPoint.Value -= value;
     }
 
     public Transform GetTransform()
@@ -32,8 +44,9 @@ public class Health : NetworkBehaviour, IDamageable
         return this.transform;
     }
 
+
     public bool IsDead()
     {
-        return health <= 0;
+        return healthPoint.Value <= 0;
     }
 }

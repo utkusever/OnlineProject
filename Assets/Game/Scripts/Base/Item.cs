@@ -7,17 +7,9 @@ using UnityEngine.Serialization;
 public abstract class Item : NetworkBehaviour
 {
     public ItemType itemType;
-    public float value;
+    public int value;
     public ParticleSystem effectPrefab;
     public ParticleSystem effectInstance;
-
-    public virtual void Start()
-    {
-    }
-
-    protected virtual void Update()
-    {
-    }
 
     public abstract void UseItem(PlayerInventory playerInventory);
 
@@ -30,6 +22,7 @@ public abstract class Item : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     protected void DestroyServerRpc()
     {
+        this.GetComponent<NetworkObject>().Despawn();
         Destroy(this.gameObject);
     }
 

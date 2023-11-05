@@ -10,15 +10,20 @@ public class Mine : Item
 
     protected override void OnTriggerEnter(Collider other)
     {
+        if (!IsServer)
+        {
+            return;
+        }
+
         if (other.TryGetComponent<IDamageable>(out IDamageable damageable))
         {
-            if (effectPrefab != null)
-            {
-                effectInstance = Instantiate(effectPrefab, this.transform.position + new Vector3(0, 1, 0),
-                    Quaternion.identity);
-                base.PlayParticleClientRpc();
-                Destroy(effectInstance.gameObject, effectInstance.time);
-            }
+            // if (effectPrefab != null)
+            // {
+            //     effectInstance = Instantiate(effectPrefab, this.transform.position + new Vector3(0, 1, 0),
+            //         Quaternion.identity);
+            //     base.PlayParticleClientRpc();
+            //     Destroy(effectInstance.gameObject, effectInstance.time);
+            // }
 
             damageable.ApplyDamage(value);
         }
