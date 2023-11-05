@@ -9,8 +9,12 @@ public class HomingRocket : Item
 
     public override void UseItem(PlayerInventory playerInventory)
     {
-        var rocket = Instantiate(missile, playerInventory.transform.position, Quaternion.identity);
-        rocket.Init(playerInventory.GetComponent<PlayerController>(), value);
-        Debug.Log("used homing");
+        if (effectPrefab!=null)
+        {
+            playerInventory.GetComponent<PlayerEffects>().PlayEffectServerRpc(this.itemType.ToString());
+        }
+        // var rocket = Instantiate(missile, playerInventory.transform.position, Quaternion.identity);
+        // rocket.Init(playerInventory.GetComponent<PlayerController>(), value);
+        // Debug.Log("used homing");
     }
 }

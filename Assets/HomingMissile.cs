@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class HomingMissile : MonoBehaviour
+public class HomingMissile : NetworkBehaviour
 {
     [SerializeField] LayerMask layerMask;
     [SerializeField] float speed;
@@ -54,7 +55,7 @@ public class HomingMissile : MonoBehaviour
     private IEnumerator LaunchMissile()
     {
         print("launched");
-        particle.Play();
+        //particle.Play();
         while (Vector3.Distance(target.transform.position, this.transform.position) > 0.2f)
         {
             this.transform.position += (target.transform.position - this.transform.position).normalized * speed *

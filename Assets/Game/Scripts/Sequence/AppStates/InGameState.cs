@@ -19,7 +19,7 @@ namespace _Game.Scripts.Sequence.AppStates
         public override void Enter()
         {
             UIManager.Instance.EnableCanvas(CanvasTypes.InGame);
-            GameManager.Instance.GetGenerator().GenerateItem(ItemType.Mine,5);
+            GameManager.Instance.GetGenerator().GenerateItem(ItemType.HomingRocket,5);
         }
 
         public override void Exit()

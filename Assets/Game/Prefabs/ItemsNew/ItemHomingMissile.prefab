@@ -70,7 +70,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 3
   value: 25
-  effect: {fileID: 0}
+  effectPrefab: {fileID: 19801434, guid: 8b4e89267363b874d836c7a3a8ebf0ed, type: 3}
   missile: {fileID: 4211841073901217891, guid: 8b4e89267363b874d836c7a3a8ebf0ed, type: 3}
 --- !u!114 &-5263304156420202452
 MonoBehaviour:
