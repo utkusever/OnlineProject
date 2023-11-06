@@ -1,3 +1,4 @@
+using System;
 using _Game.Scripts.Base.UserInterface;
 using TMPro;
 using UnityEngine;
@@ -15,6 +16,9 @@ namespace _Game.Scripts.UserInterface.Canvases
         [SerializeField] private TMP_Text kamikazeCountText;
 
         [SerializeField] private Image bulletImage;
+        [SerializeField] private Button minesGenerateButton;
+        [SerializeField] private TMP_InputField countText;
+
 
         // [SerializeField] private TMP_Text distanceText;
 
@@ -24,11 +28,13 @@ namespace _Game.Scripts.UserInterface.Canvases
         public override void OnStart()
         {
             Debug.Log("InGameUI Enabled");
+            minesGenerateButton.onClick.AddListener(GenerateMines);
         }
 
         public override void OnQuit()
         {
             Debug.Log("InGameUI Disabled");
+            minesGenerateButton.onClick.RemoveListener(GenerateMines);
         }
 
         // public void OnPauseClick()
@@ -58,6 +64,11 @@ namespace _Game.Scripts.UserInterface.Canvases
         {
             bulletImage.fillAmount = 0;
             bulletImage.DOFillAmount(1, duration);
+        }
+
+        private void GenerateMines()
+        {
+            GameManager.Instance.GetGenerator().GenerateItem(ItemType.Mine, int.Parse(countText.text));
         }
     }
 }
