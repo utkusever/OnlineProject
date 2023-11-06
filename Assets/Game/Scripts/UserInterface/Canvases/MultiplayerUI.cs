@@ -31,12 +31,15 @@ public class MultiplayerUI : AbstractBaseCanvas
     private void HostGame()
     {
         NetworkManager.Singleton.StartHost();
+        GameManager.Instance.UpdateClientDictionaryServerRpc();
         ServerButton?.Invoke();
     }
 
     private void AddClient()
     {
         NetworkManager.Singleton.StartClient();
+        print("add client");
+        GameManager.Instance.UpdateClientDictionaryServerRpc();
         ClientButton?.Invoke();
     }
 }

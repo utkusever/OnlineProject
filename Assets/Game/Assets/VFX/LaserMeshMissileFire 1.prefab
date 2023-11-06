@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8219188}
   - component: {fileID: 4211841073901217891}
   - component: {fileID: -8671360978263174894}
-  - component: {fileID: 6339720971446402552}
+  - component: {fileID: -3573702993458166537}
   m_Layer: 0
   m_Name: LaserMeshMissileFire 1
   m_TagString: Untagged
@@ -4957,7 +4957,7 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!114 &6339720971446402552
+--- !u!114 &-3573702993458166537
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4966,7 +4966,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 148698}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e96cb6065543e43c4a752faaa1468eb1, type: 3}
+  m_Script: {fileID: 11500000, guid: df2868252ab5c4d1da357e8f11f1b524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SyncPositionX: 1

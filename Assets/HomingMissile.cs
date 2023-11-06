@@ -56,8 +56,9 @@ public class HomingMissile : NetworkBehaviour
     {
         print("launched");
         //particle.Play();
-        while (Vector3.Distance(target.transform.position, this.transform.position) > 0.2f)
+        while (Vector3.Distance(target.transform.position, this.transform.position) > 3f)
         {
+            print(target.transform.position);
             this.transform.position += (target.transform.position - this.transform.position).normalized * speed *
                                        Time.deltaTime;
             this.transform.LookAt(target.transform);
