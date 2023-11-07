@@ -4936,7 +4936,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   speed: 10
-  particle: {fileID: 0}
+  particle: {fileID: 19801434}
 --- !u!114 &-8671360978263174894
 MonoBehaviour:
   m_ObjectHideFlags: 0

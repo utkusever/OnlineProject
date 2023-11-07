@@ -54,11 +54,9 @@ public class HomingMissile : NetworkBehaviour
 
     private IEnumerator LaunchMissile()
     {
-        print("launched");
-        //particle.Play();
+        particle.Play();
         while (Vector3.Distance(target.transform.position, this.transform.position) > 3f)
         {
-            print(target.transform.position);
             this.transform.position += (target.transform.position - this.transform.position).normalized * speed *
                                        Time.deltaTime;
             this.transform.LookAt(target.transform);
@@ -67,5 +65,6 @@ public class HomingMissile : NetworkBehaviour
 
         damageableTarget.ApplyDamage(value);
         Destroy(this.gameObject);
+        this.gameObject.GetComponent<NetworkObject>().Despawn();
     }
 }

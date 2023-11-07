@@ -108,7 +108,7 @@ public class BuildExe
     {
         string exeFile = "BuiltGame" + i + ".exe";
         string saveLocation= "C:/Users/Utku/Desktop/Builds";
-        string[] levels = new string[] { "Assets/Game/Scenes/SampleScene.unity" };
+        string[] levels = new string[] { "Assets/_Game/Scenes/SampleScene.unity" };
         BuildPipeline.BuildPlayer(levels,saveLocation+exeFile, BuildTarget.StandaloneWindows, BuildOptions.None);
         Process proc = new Process();
         proc.StartInfo.FileName = "C:/Users/Utku/Desktop/Builds"+exeFile;
@@ -123,7 +123,7 @@ public class ScriptBatch
     {
         // Get filename.
         string path = EditorUtility.SaveFolderPanel("Choose Location of Built Game", "", "");
-        string[] levels = new string[] { "Assets/Game/Scenes/SampleScene.unity" };
+        string[] levels = new string[] { "Assets/_Game/Scenes/SampleScene.unity" };
 
         // Build player.
         BuildPipeline.BuildPlayer(levels, path + "/BuiltGame.exe", BuildTarget.StandaloneWindows, BuildOptions.None);

@@ -34,9 +34,6 @@ public class PlayerInventory : NetworkBehaviour
             inventory[itemToAdd]++;
             inGameUI.UpdateInventoryUI(itemToAdd, inventory[itemToAdd]);
         }
-
-
-        print("item type " + itemToAdd + " count: " + inventory[itemToAdd]);
     }
 
     public void RemoveItem(ItemType itemToRemove)

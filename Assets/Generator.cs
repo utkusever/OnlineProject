@@ -14,14 +14,15 @@ public class Generator : NetworkBehaviour
     [SerializeField] private Item kamikaze;
     [SerializeField] private float boundX;
     [SerializeField] private float boundZ;
-
+    [SerializeField] private GameObject cube;
+    
     public void GenerateItem(ItemType itemToSpawn, int itemToSpawnCount)
     {
         if (!IsOwner)
         {
             return;
         }
-
+        
         for (int i = 0; i < itemToSpawnCount; i++)
         {
             Item item = itemToSpawn switch
@@ -42,5 +43,19 @@ public class Generator : NetworkBehaviour
         int randomZ = (int)Random.Range(-boundZ, boundZ);
 
         return new Vector3(randomX, 0, randomZ);
+    }
+
+    public void Create5Cubes(int count)
+    {
+        if (!IsOwner)
+        {
+            return;
+        }
+
+        for (int i = 0; i < count; i++)
+        {
+            var go = Instantiate(cube, GetRandomPos(), Quaternion.identity);
+            go.GetComponent<NetworkObject>().Spawn();
+        }
     }
 }

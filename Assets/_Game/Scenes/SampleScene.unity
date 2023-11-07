@@ -1664,7 +1664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   appStateType: 1
-  loadingTime: 0.1
+  loadingTime: 2
 --- !u!1 &1121544359
 GameObject:
   m_ObjectHideFlags: 0
@@ -3062,6 +3062,7 @@ MonoBehaviour:
   kamikaze: {fileID: 1507794126475452886, guid: 540a89b37f92a1e41831e0f6ae5b2b14, type: 3}
   boundX: 19
   boundZ: 9
+  cube: {fileID: 7488354924440870568, guid: a4e49f45d86c14e4aa4ee9f8722cde7a, type: 3}
 --- !u!4 &2057586691
 Transform:
   m_ObjectHideFlags: 0

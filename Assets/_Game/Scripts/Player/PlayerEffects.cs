@@ -28,42 +28,15 @@ public class PlayerEffects : NetworkBehaviour
             _ => null
         };
 
-
-        // if (itemTypeToSpawn == "HomingRocket")
-        // {
-        //     go.GetComponent<HomingMissile>().Init(this.GetComponent<PlayerController>(), 20);
-        //     var goNetwork = go.GetComponent<NetworkObject>();
-        //     goNetwork.Spawn();
-        // }
-
         if (go != null)
         {
             var goNetwork = go.GetComponent<NetworkObject>();
             goNetwork.Spawn();
             if (itemTypeToSpawn == "HomingRocket")
             {
-                var clientId = serverRpcParams.Receive.SenderClientId;
-                if (NetworkManager.ConnectedClients.ContainsKey(clientId))
-                {
-                    var client = NetworkManager.ConnectedClients[clientId];
-                    go.transform.SetParent(client.PlayerObject.transform);
-                    HomingClientRpc(clientId);
-                    print(clientId);
-                }
-                // foreach (var client in NetworkManager.Singleton.ConnectedClientsList)
-                // {
-                //     print(client.ClientId + "-" + clientId);
-                //     if (client.ClientId == clientId)
-                //     {
-                //         print(client.ClientId);
-                //         print(client.PlayerObject.GetComponent<PlayerController>());
-                //         go.GetComponent<HomingMissile>().Init(client.PlayerObject.GetComponent<PlayerController>(), 20);
-                //         break;
-                //     }
-                // }
+                go.GetComponent<HomingMissile>().Init(this.playerController, 20);
             }
-
-
+            
             if (itemTypeToSpawn != "HomingRocket")
             {
                 Destroy(go, go.main.duration);
@@ -72,12 +45,6 @@ public class PlayerEffects : NetworkBehaviour
         }
     }
 
-    [ClientRpc]
-    private void HomingClientRpc(ulong clientId)
-    {
-        var client = NetworkManager.ConnectedClients[clientId];
-        GetComponentInChildren<HomingMissile>().Init(client.PlayerObject.GetComponent<PlayerController>(), 20);
-    }
 
     private IEnumerator DespawnTimer(float time, NetworkObject networkObjectToDespawn)
     {
