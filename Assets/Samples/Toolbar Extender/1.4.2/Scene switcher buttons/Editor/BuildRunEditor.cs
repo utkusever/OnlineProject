@@ -25,7 +25,6 @@ static class ToolbarStyles
 [InitializeOnLoad]
 public class BuildRunEditor : MonoBehaviour
 {
-
     static BuildRunEditor()
     {
         ToolbarExtender.LeftToolbarGUI.Add(OnToolbarGUI);
@@ -50,9 +49,8 @@ public class BuildRunEditor : MonoBehaviour
             ShowPopupExample.Init();
         }
     }
-
-
 }
+
 public class ShowPopupExample : EditorWindow
 {
     private int width;
@@ -86,10 +84,10 @@ public class ShowPopupExample : EditorWindow
             SetRes();
             for (int i = 0; i < count; i++)
             {
-                ScriptBatch.BuildGame(true, width, height);
+                //ScriptBatch.BuildGame(true, width, height);
+                BuildExe.CreateExe(i);
             }
         }
-
     }
 
     private void SetRes()
@@ -98,12 +96,26 @@ public class ShowPopupExample : EditorWindow
         PlayerSettings.defaultScreenHeight = height;
     }
 }
+
+public class BuildExe
+{
+    public static void CreateExe(int i)
+    {
+        string exeFile = "BuiltGame" + i + ".exe";
+        string saveLocation= "C:/Users/Utku/Desktop/Builds";
+        string[] levels = new string[] { "Assets/Game/Scenes/SampleScene.unity" };
+        BuildPipeline.BuildPlayer(levels,saveLocation+exeFile, BuildTarget.StandaloneWindows, BuildOptions.None);
+        Process proc = new Process();
+        proc.StartInfo.FileName = "C:/Users/Utku/Desktop/Builds"+exeFile;
+        proc.Start();
+    }
+}
+
 public class ScriptBatch
 {
     [MenuItem("MyTools/Windows Build With Postprocess")]
     public static void BuildGame(bool isRun, int width, int height)
     {
-
         // Get filename.
         string path = EditorUtility.SaveFolderPanel("Choose Location of Built Game", "", "");
         string[] levels = new string[] { "Assets/Game/Scenes/SampleScene.unity" };
@@ -121,6 +133,5 @@ public class ScriptBatch
             proc.StartInfo.FileName = path + "/BuiltGame.exe";
             proc.Start();
         }
-
     }
 }
