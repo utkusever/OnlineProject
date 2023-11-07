@@ -16,10 +16,8 @@ public class InGameConsole : MonoBehaviour
         DebugLogConsole.AddCommand("battlefield", "Fill the area with mines", BattleField);
         DebugLogConsole.AddCommand("hesoyam", "Fill the area with potions", Hesoyam);
         DebugLogConsole.AddCommand("create_5_cubes", "Fill the area with potions", Create5Cubes);
-        
-        // DebugLogConsole.AddCommand<string>("create", "Creates items",CreateItems);
-        //DebugLogConsole.AddCommand( "destroy", "Destroys " + name, Destroy );
-        // DebugLogConsole.AddCommand<string, GameObject>( "child", "Creates a new child object under " + name, AddChild );
+        DebugLogConsole.AddCommand("kamikaze","Fill the area with Kamikazes",Kamikaze);
+      
     }
 
     void Destroy()
@@ -50,12 +48,9 @@ public class InGameConsole : MonoBehaviour
     {
         generator.GenerateItem(ItemType.Mine, 5);
     }
-
-    private GameObject AddChild(string name)
+    private static void Kamikaze()
     {
-        GameObject child = new GameObject(name);
-        child.transform.SetParent(transform);
-
-        return child;
+        generator.GenerateItem(ItemType.Kamikaze, 25);
     }
+   
 }

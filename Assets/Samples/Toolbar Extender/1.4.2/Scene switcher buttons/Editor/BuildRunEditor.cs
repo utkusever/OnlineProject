@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using ProjectTreeGenerator;
 using UnityEditor;
 using UnityEditor.PackageManager.UI;
 using UnityEngine;
@@ -47,6 +48,10 @@ public class BuildRunEditor : MonoBehaviour
         if (GUILayout.Button(new GUIContent("EXE", "EXE"), ToolbarStyles.commandButtonStyle))
         {
             ShowPopupExample.Init();
+        }
+        if (GUILayout.Button(new GUIContent("F", "Folder Structure Generator"), ToolbarStyles.commandButtonStyle))
+        {
+            CreateProjectTree.Execute();
         }
     }
 }
